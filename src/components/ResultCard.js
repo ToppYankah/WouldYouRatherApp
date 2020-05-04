@@ -20,6 +20,7 @@ const QuestionCard = ({ selectedOption, author, question }) => {
               style={{ width: `${question.optionOne.percentage}%` }}
               className="indicator"
             ></div>
+            <span className="percentage-value">{question.optionOne.percentage}%</span>
           </div>
           <span>{question.optionOne.votes.length} out of 3 votes</span>
         </div>
@@ -32,6 +33,7 @@ const QuestionCard = ({ selectedOption, author, question }) => {
               style={{ width: `${question.optionTwo.percentage}%` }}
               className="indicator"
             ></div>
+            <span className="percentage-value">{question.optionTwo.percentage}%</span>
           </div>
           <span>{question.optionTwo.votes.length} out of 3 votes</span>
         </div>

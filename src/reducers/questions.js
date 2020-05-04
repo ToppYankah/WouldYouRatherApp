@@ -9,8 +9,8 @@ export function questions(state = initialState, { type, payload }) {
 
     case ADD_NEW_QUESTION:
       return {
-        ...state,
         [payload.id]: payload,
+        ...state,
       };
 
     default:

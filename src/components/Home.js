@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import Unanswered from "./Unanswered";
 import Answered from "./Answered";
 import { Link } from "react-router-dom";
-import { getAllQuestions } from "../actions/questions";
 
-const Home = ({ questions, user, getAllQuestions }) => {
+const Home = ({ questions }) => {
   const [tab, setTab] = useState(0);
 
   const tabs = [
     <Unanswered questions={questions.unanswered} />,
     <Answered questions={questions.answered} />,
   ];
-
-  useEffect(() => {
-    getAllQuestions(user.id);
-  });
 
   return (
     <div className="questions-list">
@@ -45,8 +40,4 @@ const mapStateToProps = ({ auth: { user }, questions }) => ({
   user,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  getAllQuestions: (user) => dispatch(getAllQuestions(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

@@ -1,3 +1,23 @@
+# WOULD YOU RATHER APP
+"Would you rather App" is a conversation or party game that poses a dilemma in the form of a question beginning with "would you rather". Users are allowed to create their own questions for other users to answer. There's also a rank to show which user is very much contributing to the game.
+
+# HOW IT WORKS
+Before one can participate in the game, you need to login first. After loggin in, you are sent to a homepage where you will see all available questions categorized in two (ie: Answered & Unanswered questions). There's a tab to navigate between these two categories. Aside that there is a main header with some navigation links. 
+These links involve (Home, New Question, and Leader Board);
+
+[Home](src/components/Home.js): This is the first page that appears after user logs in.
+
+[New Question](src/components/CreateQuestion.js): This link takes you to a page where user can create his own "Would you rather" question for other users to also answer.
+
+[Leader Board](src/components/LeaderBoard.js): This link takes you to the ranking page, where users are ranked according to the total number of questions they have created and answered.
+
+Whenever a user answers, the votes on that particular answer is increased and calculated in percentages to show how much people have chosen that answer too.
+So as when a user creates a question, user's created questions count increases
+
+# SECURITY
+If any user tries to access a certain page while not signed in or logged in, user is asked to login. After logging in then user is taken to the intended page
+
+# BUILDING THIS PROJECT
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

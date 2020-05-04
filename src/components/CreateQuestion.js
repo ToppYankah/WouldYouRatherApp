@@ -3,27 +3,19 @@ import { createQuestion } from "../actions/questions";
 import { connect } from "react-redux";
 import { updateUserScore } from "../actions/users";
 
-const CreateQuestion = ({ user, createQuestion, updateUserScore }) => {
+const CreateQuestion = ({ user, createQuestion, updateUserScore, history }) => {
   const [question, setQuestion] = useState({
     optionOneText: "",
     optionTwoText: "",
     author: user.id,
   });
 
-  const clearFields = () => {
-    setQuestion({
-      ...question,
-      optionOneText: "",
-      optionTwoText: "",
-    });
-  };
-
   const submitQuestion = () => {
     const { optionOneText, optionTwoText } = question;
     if (optionOneText && optionTwoText) {
       createQuestion(question);
       updateUserScore(user);
-      clearFields();
+      history.push("/home");
     }
   };
 

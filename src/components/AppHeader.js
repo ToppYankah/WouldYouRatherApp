@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Logout } from "../actions/auth";
 import { connect } from "react-redux";
 
-const AppHeader = ({ Logout, user }) => {
+const AppHeader = ({ user, onLogout }) => {
   return (
     <header>
       <div className="title">
@@ -22,7 +21,7 @@ const AppHeader = ({ Logout, user }) => {
           <span
             className="logout-btn"
             style={{ cursor: "pointer" }}
-            onClick={() => Logout()}
+            onClick={onLogout}
           >
             Logout
           </span>
@@ -32,12 +31,8 @@ const AppHeader = ({ Logout, user }) => {
   );
 };
 
-const mapDispatchToProp = (dispatch) => ({
-  Logout: () => dispatch(Logout()),
-});
-
 const mapStateToProp = ({ auth: { user } }) => ({
   user,
 });
 
-export default connect(mapStateToProp, mapDispatchToProp)(AppHeader);
+export default connect(mapStateToProp)(AppHeader);

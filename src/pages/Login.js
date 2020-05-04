@@ -4,9 +4,11 @@ import { Login } from "../actions/auth";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-const LoginPage = ({ getAllUsers, users, auth, Login }) => {
+const LoginPage = ({ getAllUsers, users, auth, Login, history }) => {
   const [selectedUser, setSelectedUser] = useState({});
-  const [alertError, setAlertError] = useState({ active: false, message: "" });
+  const [alertError, setAlertError] = useState({ 
+    active: auth.intendedUrl !== "",
+    message: auth.intendedUrl && "Please, login to access the page." });
   const [placeholder, setPlaceholder] = useState("Select User");
   const [openUsersList, setOpenUsersList] = useState(false);
 
@@ -27,7 +29,10 @@ const LoginPage = ({ getAllUsers, users, auth, Login }) => {
   };
 
   const handleSubmit = () => {
-    if (Object.keys(selectedUser).length > 0) Login(selectedUser);
+    if (Object.keys(selectedUser).length > 0){
+        Login(selectedUser);
+        auth.intendedUrl && history.push(auth.intendedUrl);
+      }
     else callAlert("Please select a user");
   };
 

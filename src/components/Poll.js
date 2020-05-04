@@ -2,12 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import QuestionCard from "./QuestionCard";
 import ResultCard from "./ResultCard";
+import NotFound from "./NotFound"
 
 const Poll = ({ match, users, user, questions }) => {
   const questionId = match.params.id;
   const question = questions.filter(
     (question) => question.id === questionId
   )[0];
+
+  if(typeof question === "undefined"){
+    return <NotFound message="The poll you are looking for does not exist"/>;
+  }
+
   const author =
     users[Object.keys(users).filter((user) => user === question.author)[0]];
   const hasAnswered = Object.keys(user.answers).includes(question.id);

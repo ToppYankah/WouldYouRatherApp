@@ -572,7 +572,7 @@ header .auth .logout-btn {
 
 .question .body .optionbox .percentage-bar > div {
   background: rgb(25, 104, 223);
-  padding: 5px;
+  padding: 10px;
   border-radius: inherit;
   -webkit-border-radius: inherit;
   -moz-border-radius: inherit;
@@ -585,6 +585,19 @@ header .auth .logout-btn {
   -o-transition: all 0.5s ease-in;
 }
 
+.question .body .optionbox  .percentage-bar .percentage-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #fff;
+}
+
 .question .body .optionbox span {
   display: block;
   text-align: center;
@@ -595,3 +608,32 @@ header .auth .logout-btn {
 .question .body button {
   margin-top: 15px;
 }
+
+.not-found{
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found *{
+  margin-bottom: 10px;
+}
+
+.not-found h2{
+  color: #777;
+  font-size: 100px;
+}
+
+.not-found h3{
+  font-size: 25px;
+  color: #999;
+}
+
+.not-found p{
+  font-size: 16px;
+  color: #000;
+}
+

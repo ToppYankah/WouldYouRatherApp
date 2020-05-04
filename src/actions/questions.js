@@ -19,10 +19,10 @@ const categorizeQuestions = (questions, userId) => {
     );
 
     // vote check
-    if (voters.includes(userId)) answeredQuestions.push(question);
-    else unansweredQuestions.push(question);
+    if (voters.includes(userId)) answeredQuestions.unshift(question);
+    else unansweredQuestions.unshift(question);
 
-    allQuestions.push(question);
+    allQuestions.unshift(question);
   });
   return {
     allQuestions,
